@@ -12,6 +12,7 @@ import Billing from './pages/Billing';
 import Profile from './pages/Profile';
 import Customers from './pages/Customers';
 import AIInsights from './pages/AIInsights';
+import Landing from './pages/Landing';
 import { Toaster } from 'react-hot-toast';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
@@ -23,9 +24,10 @@ const PrivateRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => 
 const AppRoutes = () => {
   return (
     <Routes>
+      <Route path="/" element={<Landing />} />
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
-      <Route path="/" element={<PrivateRoute><Layout /></PrivateRoute>}>
+      <Route path="/dashboard" element={<PrivateRoute><Layout /></PrivateRoute>}>
         <Route index element={<Dashboard />} />
         <Route path="products" element={<Products />} />
         <Route path="customers" element={<Customers />} />
